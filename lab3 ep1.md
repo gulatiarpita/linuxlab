@@ -31,6 +31,9 @@ ls
 * `ls -l` → Detailed list (permissions, size, date)
 * `ls -a` → Shows hidden files (those starting with `.`)
 * `ls -la` → Combined
+`` 
+
+
 ![alt text](image-1.png)
 ---
 
