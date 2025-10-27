@@ -86,8 +86,9 @@ sudo usermod -g admin bob
 ```
 
 Changes **bob’s** primary group to **admin**.
----
-![alt text](IMAGES/LAB_3/3RD/1.png)![alt text](IMAGES/LAB_3/3RD/1b.png)
+
+` 
+
 ---
 
 ## 📋 Viewing Users & Groups
@@ -112,7 +113,7 @@ id alice
 
 Shows **UID**, **GID**, and all groups **alice** belongs to.
 ---
-![alt text](IMAGES/LAB_3/3RD/2.png)![alt text](IMAGES/LAB_3/3RD/2b.png)![alt text](IMAGES/LAB_3/3RD/2c.png)![alt text](IMAGES/LAB_3/3RD/2d.png)![alt text](IMAGES/LAB_3/3RD/2e.png)
+
 ---
 
 
