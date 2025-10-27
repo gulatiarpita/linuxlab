@@ -115,3 +115,6 @@ echo "source $VENV_DIR/bin/activate"
 echo ""
 echo "🚀 To start the Streamlit app, run:"
 echo "streamlit run $APP_FILE"
+
+![alt text](<Screenshot 2025-09-07 095447.png>) 
+
