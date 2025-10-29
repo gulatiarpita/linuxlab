@@ -205,8 +205,9 @@ The client initiated the connection using the friend's assigned Tailscale IP add
 | :--- | :--- | :--- |
 | **Command** | `ssh [username]@[friend's Tailscale IP]` | Used the SSH client to connect securely. |
 | **Example** | `ssh john_doe@100.100.100.101` | The connection was authenticated using the user's password or an SSH key. |
-
-![alt text](remotte.jpg)
+*****
+----
+ ![alt text](image-9.png)
 
 #### **B. Remote File Creation (Shell Scripting)**
 
