@@ -1,4 +1,4 @@
-# How to do secure shell login on Linux ❔
+# 👉🏻How to do secure shell login on Linux ❔
 Secure Shell (SSH) is a network protocol that allows you to securely connect to and control another computer (usually a remote server or a virtual machine) over a network.
 
 Instead of physically using that machine’s keyboard and monitor, you log in from your own computer using a terminal.
@@ -207,7 +207,9 @@ The client initiated the connection using the friend's assigned Tailscale IP add
 | **Example** | `ssh john_doe@100.100.100.101` | The connection was authenticated using the user's password or an SSH key. |
 *****
 ----
- ![alt text](image-9.png)
+ ![alt text](<Screenshot 2025-11-01 133703.png>)
+
+ ![alt text](<Screenshot 2025-11-01 133741-2.png>)
 
 #### **B. Remote File Creation (Shell Scripting)**
 
@@ -385,9 +387,6 @@ Tools like Teleconsole, tailscale or tmate (mentioned above) are designed to mak
 
 Using SSH with port forwarding is the most foundational and common remote terminal access method for this type of assignment.
 
-## FOR EXAMPLE
-
-![alt text](<Screenshot 2025-11-01 133741-1.png>)
 
 ---
 
