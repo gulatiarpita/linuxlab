@@ -173,3 +173,48 @@ pidstat -p 3050 2 3
 ```
 
 
+## 🎯 12. Alternatives to nice / renice
+
+**1. chrt (Real-Time Scheduling)**
+
+Set real-time scheduling policies (FIFO or Round Robin).
+
+sudo chrt -f 50 sleep 1000
+chrt -p <pid>
+
+**2. ionice (I/O Priority Control)**
+
+ionice -c 2 -n 7 tar -czf backup.tar.gz /home
+
+**3. taskset (CPU Affinity)**
+
+taskset -c 1 firefox
+
+**4. Control Groups (cgroups)**
+
+sudo cgcreate -g cpu,memory:/lowprio
+echo 20000 | sudo tee /sys/fs/cgroup/cpu/lowprio/cpu.cfs_quota_us
+echo 200M   | sudo tee /sys/fs/cgroup/memory/lowprio/memory.limit_in_bytes
+echo 1234 | sudo tee /sys/fs/cgroup/cpu/lowprio/cgroup.procs
+
+**5. systemd-run**
+ 
+ systemd-run --scope -p CPUWeight=200 stress --cpu 4
+
+**6. schedtool**
+
+sudo schedtool -R -p 10 <pid>
+
+----
+
+**✅ Summary Table**
+|Tool|	Focus	|Alternative to
+|----|----------|--------------
+|chrt|	Real-time scheduling policies	|nice
+|ionice|	I/O priority control	|(complementary)
+|taskset|	CPU affinity control	|(complementary)
+|cgroups|	Fine-grained resource management	|nice (more powerful)
+|systemd-run|	systemd + cgroups resource mgmt	|nice
+|schedtool|	Custom scheduling policies	|nice
+--- 
+
