@@ -2,12 +2,12 @@
 
 The goal is to establish a **secure, encrypted, command-line connection** between your computer (the **client**) and your friend's Ubuntu computer (the **server**) over the local network.
 
-# Connecting to same network
+# 👉🏻Connecting to same network
 ### 1\. Preparation on the Server (Your Friend's Ubuntu PC) 🧑‍💻
 
 The target machine (your friend's PC) must have the SSH server software installed and running.
 
-#### **A. Install OpenSSH Server**
+#### **👉🏻A. Install OpenSSH Server**
 
 1.  **Open a terminal** on your friend's PC.
 2.  Run the following commands to ensure the package list is up-to-date and then install the SSH server:
@@ -18,7 +18,7 @@ The target machine (your friend's PC) must have the SSH server software installe
 
 ![alt text](<Screenshot 2025-11-01 125047.png>)
 
-#### **B. Verify Service Status**
+#### **👉🏻B. Verify Service Status**
 
 1.  The SSH service usually starts automatically after installation. Verify that it is running:
     ```bash
@@ -29,7 +29,7 @@ The target machine (your friend's PC) must have the SSH server software installe
     sudo systemctl start ssh
     ```
 
-#### **C. Check Firewall (UFW)**
+#### **👉🏻C. Check Firewall (UFW)**
 
 Ubuntu often uses the Uncomplicated Firewall (UFW). You need to ensure it allows SSH traffic (default port is 22).
 
@@ -43,7 +43,7 @@ Ubuntu often uses the Uncomplicated Firewall (UFW). You need to ensure it allows
     sudo ufw enable  # Only if it's currently inactive
     ```
 
-#### **D. Find Local IP Address**
+#### **👉🏻D. Find Local IP Address**
 
 You need the server's internal network IP address (e.g., `192.168.1.5`).
 
@@ -58,11 +58,11 @@ You need the server's internal network IP address (e.g., `192.168.1.5`).
     ![alt text](<Screenshot 2025-10-21 150111-1.png>)
 
 
-### 2\. Connecting from the Client (Your Ubuntu PC) 🖥️
+### 👉🏻2\. Connecting from the Client (Your Ubuntu PC) 🖥️
 
 Your machine (the client) typically has the SSH client software installed by default, but it's good practice to ensure it's present.
 
-#### **A. Verify OpenSSH Client**
+#### **👉🏻A. Verify OpenSSH Client**
 
 1.  **Open a terminal** on your PC.
 2.  Install the client if necessary (though it's usually pre-installed):
@@ -70,7 +70,7 @@ Your machine (the client) typically has the SSH client software installed by def
     sudo apt install openssh-client
     ```
 
-#### **B. Connect via SSH**
+#### **👉🏻B. Connect via SSH**
 
 Use the `ssh` command with the friend's username and the IP address you noted in step 1D.
 
@@ -92,13 +92,13 @@ Use the `ssh` command with the friend's username and the IP address you noted in
 
 # Connecting to different network
 
-### **1. Setup (The "Tailnet" Creation)**
+### **👉🏻1. Setup (The "Tailnet" Creation)**
 
 ![alt text](image-12.png)
 
 ![alt text](<Screenshot 2025-11-01 125802.png>)
 
-### **2. Connecting (The Core Concept)**
+### **👍🏻2. Connecting (The Core Concept)**
 
 Once both computers are connected and authorized on the same tailnet:
 
@@ -108,7 +108,7 @@ Once both computers are connected and authorized on the same tailnet:
 | **P2P Connection** | Tailscale uses the **WireGuard** protocol and NAT traversal techniques (like DERP and STUN) to establish an encrypted tunnel directly between your PC and your friend's PC. |
 | **Bypassing the Router** | Because the connection is P2P and encrypted, you **do not** need to configure any port forwarding on either of your routers. |
 
-### **3. Terminal Access via Tailscale IP**
+### **👍🏻3. Terminal Access via Tailscale IP**
 
 1.  **Friend's PC (The Host):**
 
@@ -123,7 +123,7 @@ Once both computers are connected and authorized on the same tailnet:
         ```
       * *Example:* `ssh jsmith@100.100.100.101`
 
-### **4. Advanced (Optional): Tailscale SSH**
+### **👍🏻4. Advanced (Optional): Tailscale SSH**
 
 For an excellent mark, mention **Tailscale SSH**. This feature:
 
@@ -143,11 +143,11 @@ This approach shows you understand modern networking solutions and advanced secu
 
 ![alt text](<Screenshot 2025-11-01 133741.png>)
 
-#### **III. Secure Data Retrieval (File Transfer)**
+#### **👍🏻III. Secure Data Retrieval (File Transfer)**
 
 After creating the file remotely, the **Secure Copy Protocol (SCP)** was used to transfer the file securely back to the local machine, all over the encrypted Tailscale/SSH channel.
 
-##### **A. SCP Command Execution**
+##### **👍🏻A. SCP Command Execution**
 
 SCP is a command-line utility that relies on SSH for security. The command was executed from the **local machine** (the client) to download the file from the remote machine (the server):
 
@@ -159,7 +159,7 @@ SCP is a command-line utility that relies on SSH for security. The command was e
 
 
 
-##### **B. Example Command (Executed on Local PC)**
+##### **👍🏻B. Example Command (Executed on Local PC)**
 
 ```bash
 scp john_doe@100.100.100.101:~/assignment_proof.txt ./local_proofs/
@@ -167,7 +167,7 @@ scp john_doe@100.100.100.101:~/assignment_proof.txt ./local_proofs/
 
 ![alt text](muditfiletransfer.jpg)
 
-#### **IV. Protocol Analysis: SCP vs. SFTP**
+#### **👍🏻IV. Protocol Analysis: SCP vs. SFTP**
 
 While SCP was used for a quick file copy, two primary SSH-based protocols are available for file transfer.
 
