@@ -242,12 +242,7 @@ SCP is a command-line utility that relies on SSH for security. The command was e
 
 scp john_doe@100.100.100.101:~/assignment_proof.txt ./local_proofs/
 
-**example 1**
-
-
-![alt text](image-6.png)
-
-**example 2**
+**example**
 
 ![alt text](image-7.png)
 
@@ -357,6 +352,42 @@ This system is significantly more secure than passwords because the private key 
 ssh -keygen
 ```
 ![alt text](<Screenshot 2025-10-21 151313.png>)
+
+---
+
+## 🌐 Different Network Access (Wide Area Network - WAN)
+Accessing a computer across the internet when it's behind a separate router (as is typical for home networks) is more complex due to Network Address Translation (NAT) and firewalls.
+
+#### Methods for Different Network Access:
+1. Port Forwarding (Traditional Method):
+
+🟤 Friend's Router Setup: Your friend needs to configure their home router to forward an external port (e.g., a custom port like 2222) to the internal port 22 (the default SSH port) of their computer's local IP address.
+
+🟤 Find Public IP Address: Your friend needs to find their network's public IP address (they can search "What is my IP" on Google).
+
+🟤 Your PC Connects: You connect using SSH to their public IP and the forwarded port:
+
+```bash
+
+ssh username@friend_public_ip_address -p 2222
+```
+Note: Public IP addresses can sometimes change (Dynamic IP), which requires using a Dynamic DNS (DDNS) service to maintain a persistent hostname.
+
+2. VPN (Virtual Private Network):
+
+Both your friend's PC and your PC connect to a third-party VPN server or a dedicated self-hosted VPN server (e.g., OpenVPN, WireGuard).
+
+Once connected to the same VPN, the computers act as if they are on the same private network, and you can use the SSH method for the same network with the IP address assigned by the VPN.
+
+3. Third-Party Tunneling/Sharing Tools (Easiest Option for the End-User):
+
+Tools like Teleconsole, tailscale or tmate (mentioned above) are designed to make this easy by creating a temporary, secure tunnel that bypasses the need for manual port forwarding. Your friend runs a command, gets a unique ID or link, and shares it with you to join the session.
+
+Using SSH with port forwarding is the most foundational and common remote terminal access method for this type of assignment.
+
+## FOR EXAMPLE
+
+![alt text](<Screenshot 2025-11-01 133741-1.png>)
 
 ---
 
